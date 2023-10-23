@@ -21,7 +21,7 @@ if __name__ == "__main__":
 
     city = input('Please enter a city name: ')
   
-    weather_data = get_current_weather(city)
+    data = get_current_weather(city)
 
     print("\n")
-    pprint(weather_data)
+    pprint(data)
