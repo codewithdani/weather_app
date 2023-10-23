@@ -19,7 +19,7 @@ def get_current_weather(city="Addis Ababa"):
 if __name__ == "__main__":
     print('\n*** Get Current Weather Conditions ***\n')
 
-    city = input("\nPlease enter a city name: ")
+    city = input('Please enter a city name: ')
   
     weather_data = get_current_weather(city)
 
