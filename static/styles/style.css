@@ -28,6 +28,6 @@ footer {
     text-align: center;
     padding: 10px;
     width: 100%; /* Make the footer span the full width */ 
-    /* position: absolute; /* Position the footer absolutely */ 
-    bottom: 0; */
+    position: absolute; /* Position the footer absolutely */ 
+    bottom: 0; 
 }
