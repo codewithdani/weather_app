@@ -26,7 +26,7 @@ footer {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 5px;
+    padding: 3px;
     width: 100%; /* Make the footer span the full width */ 
     position: absolute; /* Position the footer absolutely */ 
     bottom: 0; 
