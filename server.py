@@ -11,6 +11,20 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/signin')
+def signin():
+    return render_template('signin.html')
+
+
+@app.route('/signup')
+def signup():
+    return render_template('signup.html')
+
+
+@app.route('/logout')
+def logout():
+    return render_template('logout.html')
+
 @app.route('/weather')
 def get_weather():
     city = request.args.get('city')
