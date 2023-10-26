@@ -24,7 +24,7 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/signin', methods=['GET', 'POST'])
+@app.route('/signin')
 def signin():
     if request.method == "POST":
         uname = request.form["username"]
@@ -32,7 +32,7 @@ def signin():
         
         login = User.query.filter_by(username=uname, password=passw).first()
         if login is not None:
-            return redirect(url_for("/"))
+            return redirect(url_for("index"))
     return render_template('signin.html')
 
 
@@ -43,11 +43,18 @@ def signup():
         mail = request.form['email']
         passw = request.form['password']
 
-        register = User(username = uname, email = mail, password = passw)
+        # Check if the email already exists in the database
+        existing_user = User.query.filter_by(email=mail).first()
+        if existing_user:
+            flash('Email address already in use. Please choose a different one.')
+            return redirect(url_for('signup'))
+
+        register = User(username=uname, email=mail, password=passw)
         db.session.add(register)
         db.session.commit()
 
         return redirect(url_for("signin"))
+
     return render_template('signup.html')
 
 
