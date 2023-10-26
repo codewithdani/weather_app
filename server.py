@@ -8,17 +8,26 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-
-def init_db():
-    with app.app_context():
-        db.create_all()
-
         
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80))
     email = db.Column(db.String(120))
     password = db.Column(db.String(80))
+
+
+def init_db():
+    with app.app_context():
+        db.create_all()
+
+        
+def create_app():
+    app = Flask(__name__)
+
+    with app.app_context():
+        init_db()
+
+    return app
 
 
 @app.route('/')
@@ -83,5 +92,5 @@ def get_weather():
 
 
 if __name__ == "__main__":
-    init_db()
+    app = create_app()
     serve(app, host="0.0.0.0", port=8000)
