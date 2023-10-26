@@ -10,7 +10,7 @@ app.config['SECRET_KEY'] = "thisismysecratkey"
 db = SQLAlchemy(app)
 
         
-class Users(db.Model):
+class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), nullable=False)
     email = db.Column(db.String(120), nullable=False, unique=True)
@@ -30,7 +30,7 @@ def signin():
         uname = request.form["username"]
         passw = request.form["password"]
         
-        login = Users.query.filter_by(username=uname, password=passw).first()
+        login = User.query.filter_by(username=uname, password=passw).first()
         if login is not None:
             return redirect(url_for("index"))
     return render_template('signin.html')
@@ -44,12 +44,12 @@ def signup():
         passw = request.form['password']
 
         # Check if the email already exists in the database
-        existing_user = Users.query.filter_by(email=mail).first()
+        existing_user = User.query.filter_by(email=mail).first()
         if existing_user:
             flash('Email address already in use. Please choose a different one.')
             return redirect(url_for('signup'))
 
-        register = Users(username=uname, email=mail, password=passw)
+        register = User(username=uname, email=mail, password=passw)
         db.session.add(register)
         db.session.commit()
 
