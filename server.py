@@ -1,8 +1,24 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash, redirect,url_for,session,logging
 from main import get_current_weather
 from waitress import serve
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+
+
+def init_db():
+    with app.app_context():
+        db.create_all()
+
+        
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80))
+    email = db.Column(db.String(120))
+    password = db.Column(db.String(80))
 
 
 @app.route('/')
@@ -13,11 +29,28 @@ def index():
 
 @app.route('/signin')
 def signin():
+    if request.method == "POST":
+        uname = request.form["username"]
+        passw = request.form["password"]
+        
+        login = User.query.filter_by(username=uname, password=passw).first()
+        if login is not None:
+            return redirect(url_for("index"))
     return render_template('signin.html')
 
 
 @app.route('/signup')
 def signup():
+    if request.method == "POST":
+        uname = request.form['username']
+        mail = request.form['email']
+        passw = request.form['password']
+
+        register = User(username = uname, email = mail, password = passw)
+        db.session.add(register)
+        db.session.commit()
+
+        return redirect(url_for("signin"))
     return render_template('signup.html')
 
 
@@ -50,4 +83,5 @@ def get_weather():
 
 
 if __name__ == "__main__":
+    init_db()
     serve(app, host="0.0.0.0", port=8000)
