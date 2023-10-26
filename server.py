@@ -16,20 +16,6 @@ class User(db.Model):
     password = db.Column(db.String(80))
 
 
-def init_db():
-    with app.app_context():
-        db.create_all()
-
-        
-def create_app():
-    app = Flask(__name__)
-
-    with app.app_context():
-        init_db()
-
-    return app
-
-
 @app.route('/')
 @app.route('/index')
 def index():
@@ -92,5 +78,4 @@ def get_weather():
 
 
 if __name__ == "__main__":
-    app = create_app()
     serve(app, host="0.0.0.0", port=8000)
