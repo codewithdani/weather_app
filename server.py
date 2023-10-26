@@ -2,18 +2,20 @@ from flask import Flask, render_template, request, flash, redirect,url_for,sessi
 from main import get_current_weather
 from waitress import serve
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Pass_123@localhost/users'
+app.config['SECRET_KEY'] = "thisismysecratkey"
 db = SQLAlchemy(app)
 
         
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80))
-    email = db.Column(db.String(120))
-    password = db.Column(db.String(80))
+    username = db.Column(db.String(80), nullable=False)
+    email = db.Column(db.String(120), nullable=False, unique=True)
+    password = db.Column(db.String(80), nullable=False)
+    date_added = db.Column(db.DateTime, default=datetime.utcnow)
 
 
 @app.route('/')
@@ -22,7 +24,7 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/signin')
+@app.route('/signin', methods=['GET', 'POST'])
 def signin():
     if request.method == "POST":
         uname = request.form["username"]
@@ -30,11 +32,11 @@ def signin():
         
         login = User.query.filter_by(username=uname, password=passw).first()
         if login is not None:
-            return redirect(url_for("index"))
+            return redirect(url_for("/"))
     return render_template('signin.html')
 
 
-@app.route('/signup')
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == "POST":
         uname = request.form['username']
