@@ -19,13 +19,14 @@ class User(db.Model):
     date_joined = db.Column(db.DateTime, default=datetime.utcnow)
 
 
-@app.route('/')
+
 @app.route('/index')
 def index():
     return render_template('index.html')
 
 
-@app.route('/signin')
+@app.route('/')
+@app.route('/signin', methods=['GET', 'POST'])
 def signin():
     if request.method == "POST":
         uname = request.form["username"]
@@ -33,7 +34,7 @@ def signin():
         
         login = User.query.filter_by(username=uname, password=passw).first()
         if login is not None:
-            return redirect(url_for("index"))
+            return redirect(url_for('index'))
     return render_template('signin.html')
 
 
