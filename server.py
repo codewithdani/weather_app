@@ -62,7 +62,8 @@ def signup():
 
 @app.route('/logout')
 def logout():
-    return render_template('logout.html')
+  # return render_template('logout.html')
+  return redirect(url_for("signin"))
 
 @app.route('/weather')
 def get_weather():
