@@ -4,6 +4,7 @@ from waitress import serve
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import sqlite3
+from jinja2 import Environment, BaseLoader
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
@@ -20,6 +21,13 @@ class User(db.Model):
 
 
 
+def obfuscate_password(password):
+    return '*' * len(password)
+
+# Add the custom filter to the Jinja2 environment
+app.jinja_env.filters['obfuscate_password'] = obfuscate_password
+
+
 @app.route('/index')
 def index():
     return render_template('index.html')
@@ -32,9 +40,9 @@ def signin():
         uname = request.form["username"]
         passw = request.form["password"]
         
-        login = User.query.filter_by(username=uname, password=passw).first()
-        if login is not None:
+        if User.query.filter_by(username=uname, password=passw).first():
             return redirect(url_for('index'))
+    
     return render_template('signin.html')
 
 
@@ -87,6 +95,12 @@ def get_weather():
         temp=f"{weather_data['main']['temp']:.1f}",
         feels_like=f"{weather_data['main']['feels_like']:.1f}"
     )
+
+
+@app.route('/user_report')
+def user_report():
+    users = User.query.all()
+    return render_template('user_report.html', users=users)
 
 
 if __name__ == "__main__":
