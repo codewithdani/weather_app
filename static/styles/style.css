@@ -67,7 +67,7 @@ th, td {
     }
 
     input, button {
-        font-size: 1.6rem; /* Slightly reduce font size for mobile */
+        font-size: 1rem; /* Slightly reduce font size for mobile */
         padding: 1rem; /* Adjust padding for mobile */
     }
 
