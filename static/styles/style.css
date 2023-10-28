@@ -58,7 +58,7 @@ th, td {
     }
 
     .navbar a {
-        font-size: 16px; /* Reduce font size for mobile */
+        font-size: 13px; /* Reduce font size for mobile */
     }
 
     body {
