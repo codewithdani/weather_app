@@ -78,12 +78,14 @@ th, td {
 
     table {
         width: 100%; /* Make the table full-width on mobile */
+        overflow-x: auto; /* Enable horizontal scrolling for the table */
     }
 
     th, td {
         border: none; /* Remove borders for mobile */
-        padding: 1px; /* Adjust padding for mobile */
+        padding: 6px; /* Adjust padding for mobile */
         text-align: center; /* Center-align text for mobile */
+        overflow-x: auto;
     }
 }
 
