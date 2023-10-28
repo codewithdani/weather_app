@@ -58,16 +58,16 @@ th, td {
     }
 
     .navbar a {
-        font-size: 10px; /* Reduce font size for mobile */
+        font-size: 16px; /* Reduce font size for mobile */
     }
 
     body {
-        padding: .6rem; /* Reduce body padding for mobile */
+        padding: 1rem; /* Reduce body padding for mobile */
     }
 
     input, button {
-        font-size: 1.1rem; /* Slightly reduce font size for mobile */
-        padding: 0.6rem; /* Adjust padding for mobile */
+        font-size: 1.8rem; /* Slightly reduce font size for mobile */
+        padding: 1rem; /* Adjust padding for mobile */
     }
 
     footer {
@@ -77,12 +77,12 @@ th, td {
     }
 
     table {
-        width: 100%; /* Make the table full-width on mobile */
+        width: 25%; /* Make the table full-width on mobile */
     }
 
     th, td {
         border: none; /* Remove borders for mobile */
-        padding: 5px; /* Adjust padding for mobile */
+        padding: 2px; /* Adjust padding for mobile */
         text-align: center; /* Center-align text for mobile */
     }
 }
