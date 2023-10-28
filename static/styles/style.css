@@ -35,7 +35,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 2px;
-    width: 30%; 
+    width: 100%; 
     position: absolute;
     bottom: 0; 
 }
@@ -52,184 +52,54 @@ th, td {
 
 
 /* Mobile (up to 767px) */
-@media only screen and (max-width: 767px) {
-    body {
-        font-size: 14px;
-        padding: 10px;
-    }
-
+@media (max-width: 767px) {
     .navbar {
-        margin-left: auto;
+        margin-left: auto; /* Keep the desktop margin on the right for the navbar */
     }
-    
+
     .navbar a {
-        font-size: 16px;
-    }
-    
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+        font-size: 14px; /* Reduce font size for mobile */
     }
 
     body {
-        padding: 2rem;
-        background-color: #089b27;
-        color: whitesmoke;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-        font-size: 2rem;
+        padding: 1rem; /* Reduce body padding for mobile */
     }
-    
+
     input, button {
-        font-size: 2rem;
-        padding: 1rem;
-        border-radius: 10px;
+        font-size: 1.6rem; /* Slightly reduce font size for mobile */
+        padding: 0.8rem; /* Adjust padding for mobile */
     }
-    
+
     footer {
-        background-color: #333;
-        color: #fff;
-        text-align: center;
-        padding: 2px;
-        width: 100%; 
-        position: absolute;
-        bottom: 0; 
+        width: 100%; /* Make the footer full-width on mobile */
     }
-    
-    table {
-        border-collapse: collapse;
-        width: 100%;
-    }
-    th, td {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-    }
-    
 }
 
 /* Tablet (768px to 991px) */
 @media (min-width: 768px) and (max-width: 991px) {
-    body {
-        margin: 20px;
-        background-color: #ECECEC;
-    }
-
     .navbar {
-        margin-left: auto;
-    }
-    
-    .navbar a {
-        font-size: 16px;
-    }
-    
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+        margin-left: auto; /* Keep the desktop margin on the right for the navbar */
     }
 
-    body {
-        padding: 2rem;
-        background-color: #089b27;
-        color: whitesmoke;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-        font-size: 2rem;
+    .navbar a {
+        font-size: 16px; /* Restore default font size for tablets */
     }
-    
+
     input, button {
-        font-size: 2rem;
-        padding: 1rem;
-        border-radius: 10px;
+        font-size: 1.8rem; /* Adjust font size for tablets */
+        padding: 1rem; /* Adjust padding for tablets */
     }
-    
-    footer {
-        background-color: #333;
-        color: #fff;
-        text-align: center;
-        padding: 2px;
-        width: 100%; 
-        position: absolute;
-        bottom: 0; 
-    }
-    
-    table {
-        border-collapse: collapse;
-        width: 100%;
-    }
-    th, td {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-    }
-    
 }
 
 /* Desktop (992px and larger) */
 @media (min-width: 992px) {
-    body {
-        font-size: 18px;
-        background-color: #FFFFFF;
-    }
-
     .navbar {
-        margin-left: auto;
-    }
-    
-    .navbar a {
-        font-size: 16px;
-    }
-    
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+        margin-left: auto; /* Keep the desktop margin on the right for the navbar */
     }
 
-    body {
-        padding: 2rem;
-        background-color: #089b27;
-        color: whitesmoke;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-        font-size: 2rem;
+    .navbar a {
+        font-size: 16px; /* Restore default font size for desktop */
     }
-    
-    input, button {
-        font-size: 2rem;
-        padding: 1rem;
-        border-radius: 10px;
-    }
-    
-    footer {
-        background-color: #333;
-        color: #fff;
-        text-align: center;
-        padding: 2px;
-        width: 1000%; 
-        position: absolute;
-        bottom: 0; 
-    }
-    
-    table {
-        border-collapse: collapse;
-        width: 100%;
-    }
-    th, td {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-    }
-    
+
+    /* body styles, input, button, and footer styles remain the same as your original desktop styles */
 }
