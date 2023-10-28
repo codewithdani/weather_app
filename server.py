@@ -6,9 +6,11 @@ from datetime import datetime
 import sqlite3
 from jinja2 import Environment, BaseLoader
 
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SECRET_KEY'] = "thisismysecratkey"
+
 db = SQLAlchemy(app)
 
         
@@ -19,6 +21,25 @@ class User(db.Model):
     password = db.Column(db.String(80), nullable=False)
     date_joined = db.Column(db.DateTime, default=datetime.utcnow)
 
+
+class CityVisit(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    city = db.Column(db.String(100), nullable=False)
+    visit_time = db.Column(db.DateTime, default=datetime.utcnow)
+
+
+def is_authenticated():
+    return 'user_id' in session
+
+@app.route('/visit_history')
+def visit_history():
+    if is_authenticated():
+        user_id = session['user_id']
+        user_visits = CityVisit.query.filter_by(user_id=user_id).all()
+        return render_template('visit_history.html', user_visits=user_visits)
+    else:
+        return redirect(url_for('signin'))  # Redirect to the login page
 
 
 def obfuscate_password(password):
