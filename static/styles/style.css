@@ -67,8 +67,8 @@ th, td {
     }
 
     input, button {
-        font-size: 1.2rem; /* Slightly reduce font size for mobile */
-        padding: .8rem; /* Adjust padding for mobile */
+        font-size: 1.8rem; /* Slightly reduce font size for mobile */
+        padding: 1rem; /* Adjust padding for mobile */
     }
 
     footer {
