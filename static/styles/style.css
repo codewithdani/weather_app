@@ -58,11 +58,11 @@ th, td {
     }
 
     .navbar a {
-        font-size: 8px; /* Reduce font size for mobile */
+        font-size: 14px; /* Reduce font size for mobile */
     }
 
     body {
-        padding: .7rem; /* Reduce body padding for mobile */
+        padding: 1rem; /* Reduce body padding for mobile */
         font-size: 8px;
     }
 
