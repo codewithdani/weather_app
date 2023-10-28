@@ -72,6 +72,18 @@ th, td {
 
     footer {
         width: 100%; /* Make the footer full-width on mobile */
+        position: fixed;
+        bottom: 0;
+    }
+
+    table {
+        width: 100%; /* Make the table full-width on mobile */
+    }
+
+    th, td {
+        border: none; /* Remove borders for mobile */
+        padding: 5px; /* Adjust padding for mobile */
+        text-align: center; /* Center-align text for mobile */
     }
 }
 
