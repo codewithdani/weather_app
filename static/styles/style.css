@@ -62,12 +62,12 @@ th, td {
     }
 
     body {
-        padding: .7rem; /* Reduce body padding for mobile */
-        font-size: 8px;
+        padding: 1rem; /* Reduce body padding for mobile */
+        font-size: 10px;
     }
 
     input, button {
-        font-size: 1.4rem; /* Slightly reduce font size for mobile */
+        font-size: 1.6rem; /* Slightly reduce font size for mobile */
         padding: 1rem; /* Adjust padding for mobile */
     }
 
