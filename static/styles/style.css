@@ -58,16 +58,16 @@ th, td {
     }
 
     .navbar a {
-        font-size: 13px; /* Reduce font size for mobile */
+        font-size: 10px; /* Reduce font size for mobile */
     }
 
     body {
-        padding: 1rem; /* Reduce body padding for mobile */
+        padding: .7rem; /* Reduce body padding for mobile */
     }
 
     input, button {
-        font-size: 1.8rem; /* Slightly reduce font size for mobile */
-        padding: 1rem; /* Adjust padding for mobile */
+        font-size: 1.2rem; /* Slightly reduce font size for mobile */
+        padding: .8rem; /* Adjust padding for mobile */
     }
 
     footer {
