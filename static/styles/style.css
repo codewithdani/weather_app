@@ -71,9 +71,9 @@ th, td {
     }
 
     footer {
-        width: 100%; /* Make the footer full-width on mobile */
         position: fixed;
         bottom: 0;
+        width: 100%; /* Make the footer full-width on mobile */
     }
 
     table {
