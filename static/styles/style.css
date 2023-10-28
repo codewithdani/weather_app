@@ -85,7 +85,6 @@ th, td {
         border: none; /* Remove borders for mobile */
         padding: 6px; /* Adjust padding for mobile */
         text-align: center; /* Center-align text for mobile */
-        overflow-x: auto;
     }
 }
 
