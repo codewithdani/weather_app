@@ -58,7 +58,7 @@ th, td {
     }
 
     .navbar a {
-        font-size: 10px; /* Reduce font size for mobile */
+        font-size: 8px; /* Reduce font size for mobile */
     }
 
     body {
@@ -77,12 +77,12 @@ th, td {
     }
 
     table {
-        width: 25%; /* Make the table full-width on mobile */
+        width: 100%; /* Make the table full-width on mobile */
     }
 
     th, td {
         border: none; /* Remove borders for mobile */
-        padding: 2px; /* Adjust padding for mobile */
+        padding: 1px; /* Adjust padding for mobile */
         text-align: center; /* Center-align text for mobile */
     }
 }
