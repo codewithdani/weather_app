@@ -99,9 +99,9 @@ def get_weather():
     city = request.args.get('city')
 
     # Check for empty strings or string with only spaces
-    if not bool(city.strip()):
+    '''if not bool(city.strip()):
         # You could render "City Not Found" instead like we do below
-        city = "Addis Ababa City"
+        city = "Addis Ababa City"'''
 
     weather_data = get_current_weather(city)
 
