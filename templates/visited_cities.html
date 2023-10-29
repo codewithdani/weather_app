@@ -14,12 +14,10 @@
             <a class="navbar-brand" href="index">Home</a>
         </div>
     </nav>
-    <h1>Your City Visit History</h1>
-    <ul>
-        {% for visit in user_visits %}
-            <li>Visited {{ visit.city }} on {{ visit.visit_time }}</li>
-        {% endfor %}
-    </ul>
+    <body>
+        <h1>Visited Cities</h1>
+        <p>{{ cities }}</p>
+    </body>
     <footer>Developed by Daniel Giday</footer>
 </body>
 </html>

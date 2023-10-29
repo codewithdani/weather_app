@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import sqlite3
 from jinja2 import Environment, BaseLoader
+import json
 
 
 app = Flask(__name__)
@@ -28,18 +29,25 @@ class CityVisit(db.Model):
     city = db.Column(db.String(100), nullable=False)
     visit_time = db.Column(db.DateTime, default=datetime.utcnow)
 
-
-def is_authenticated():
-    return 'user_id' in session
-
+'''
 @app.route('/visit_history')
 def visit_history():
     if is_authenticated():
-        user_id = session['user_id']
+        user_id = session.get('user_id')
         user_visits = CityVisit.query.filter_by(user_id=user_id).all()
         return render_template('visit_history.html', user_visits=user_visits)
     else:
-        return redirect(url_for('signin'))  # Redirect to the login page
+        return redirect(url_for('signin'))  # Redirect to the signin page
+
+# Your is_authenticated function can be updated like this'''
+def is_authenticated():
+    return 'user_id' in session
+
+# Define a function to read visit history from the JSON file
+def read_visit_history():
+    with open('visit_history.json', 'r') as json_file:
+        visit_history = json.load(json_file)
+    return visit_history
 
 
 def obfuscate_password(password):
@@ -48,6 +56,8 @@ def obfuscate_password(password):
 # Add the custom filter to the Jinja2 environment
 app.jinja_env.filters['obfuscate_password'] = obfuscate_password
 
+
+visited_cities = []
 
 @app.route('/index')
 def index():
@@ -98,11 +108,6 @@ def logout():
 def get_weather():
     city = request.args.get('city')
 
-    # Check for empty strings or string with only spaces
-    '''if not bool(city.strip()):
-        # You could render "City Not Found" instead like we do below
-        city = "Addis Ababa City"'''
-
     weather_data = get_current_weather(city)
 
     # City is not found by API
@@ -117,6 +122,23 @@ def get_weather():
         feels_like=f"{weather_data['main']['feels_like']:.1f}"
     )
 
+
+@app.route('/register_city', methods=['POST'])
+def register_city():
+    city = request.form['city']  # Get the city from the form data
+
+    visited_cities.append(city)  # Add the city to the list
+
+    return redirect(url_for('index'))
+
+
+@app.route('/visited_cities')
+def get_visited_cities():
+    # Combine the visited cities into a single string, separated by commas
+    cities = ", ".join(visited_cities)
+
+    # Render the 'visited_cities.html' template with the cities data
+    return render_template('visited_cities.html', cities=cities)
 
 @app.route('/user_report')
 def user_report():
