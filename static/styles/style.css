@@ -80,7 +80,7 @@ th, td {
     table {
         width: 100%; /* Make the table full-width on mobile */
         overflow-x: auto; /* Enable horizontal scrolling for the table */
-        font-size: 13px;
+        font-size: 12.6px;
     }
 
     th, td {
