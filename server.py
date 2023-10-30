@@ -30,8 +30,6 @@ class CityVisit(db.Model):
     city = db.Column(db.String(100), nullable=False)
     visit_time = db.Column(db.DateTime, default=datetime.utcnow)
 
-def is_authenticated():
-    return 'user_id' in session
 
 # Define a function to read visit history from the JSON file
 def read_visit_history():
