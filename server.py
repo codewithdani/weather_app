@@ -47,8 +47,6 @@ def obfuscate_password(password):
 app.jinja_env.filters['obfuscate_password'] = obfuscate_password
 
 
-visited_cities = []
-
 @app.route('/index')
 def index():
     return render_template('index.html')
