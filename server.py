@@ -138,7 +138,6 @@ def register_city():
 
     # Save the updated list of cities
     save_cities(cities)
-
     return redirect(url_for('index'))
 
 @app.route('/visited_cities')
