@@ -16,7 +16,11 @@
     </nav>
     <body>
         <h1>Visited Cities</h1>
-        <p>{{ cities }}</p>
+        <ul>
+            {% for city in cities %}
+                <li>{{ city }}</li>
+            {% endfor %}
+        </ul>
     </body>
     <footer>Developed by Daniel Giday</footer>
 </body>

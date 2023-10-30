@@ -1,6 +1,0 @@
-[
-    {"user_id": 1, "city": "New York", "visit_time": "2023-10-01 14:30:00"},
-    {"user_id": 2, "city": "Los Angeles", "visit_time": "2023-10-02 10:15:00"},
-    {"user_id": 1, "city": "Chicago", "visit_time": "2023-10-03 16:45:00"}
-    
-]

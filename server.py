@@ -6,6 +6,7 @@ from datetime import datetime
 import sqlite3
 from jinja2 import Environment, BaseLoader
 import json
+import os
 
 
 app = Flask(__name__)
@@ -29,17 +30,6 @@ class CityVisit(db.Model):
     city = db.Column(db.String(100), nullable=False)
     visit_time = db.Column(db.DateTime, default=datetime.utcnow)
 
-'''
-@app.route('/visit_history')
-def visit_history():
-    if is_authenticated():
-        user_id = session.get('user_id')
-        user_visits = CityVisit.query.filter_by(user_id=user_id).all()
-        return render_template('visit_history.html', user_visits=user_visits)
-    else:
-        return redirect(url_for('signin'))  # Redirect to the signin page
-
-# Your is_authenticated function can be updated like this'''
 def is_authenticated():
     return 'user_id' in session
 
@@ -122,22 +112,44 @@ def get_weather():
         feels_like=f"{weather_data['main']['feels_like']:.1f}"
     )
 
+def save_cities(cities):
+    with open('visited_cities.json', 'w') as file:
+        json.dump(cities, file)
+
+def load_cities():
+    cities = []
+
+    if os.path.exists('visited_cities.json'):
+        with open('visited_cities.json', 'r') as file:
+            data = file.read()
+            if data:  # Check if the file is not empty
+                try:
+                    cities = json.loads(data)
+                except json.JSONDecodeError:
+                    print("Error loading JSON data")
+
+    return cities
 
 @app.route('/register_city', methods=['POST'])
 def register_city():
-    city = request.form['city']  # Get the city from the form data
+    city = request.form['city']
 
-    visited_cities.append(city)  # Add the city to the list
+    # Load the existing cities
+    cities = load_cities()
+
+    # Add the new city to the list
+    cities.append(city)
+
+    # Save the updated list of cities
+    save_cities(cities)
 
     return redirect(url_for('index'))
 
-
 @app.route('/visited_cities')
 def get_visited_cities():
-    # Combine the visited cities into a single string, separated by commas
-    cities = ", ".join(visited_cities)
+    # Load the list of cities
+    cities = load_cities()
 
-    # Render the 'visited_cities.html' template with the cities data
     return render_template('visited_cities.html', cities=cities)
 
 @app.route('/user_report')
