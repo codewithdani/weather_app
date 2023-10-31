@@ -39,7 +39,7 @@ Open a web browser and go to http://localhost:8000 to use the app.
 ## License
 This project is licensed under the MIT License.
 
-# Contributing
+# Contributor
 Daniel Giday
 
 # Contact
