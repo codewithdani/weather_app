@@ -18,7 +18,7 @@ To use the Weather App, follow these steps:
 1. **Clone the Repository**:
   
    git clone https://github.com/codewithdani/weather-app.git
-   cd weather-app
+   - cd weather-app
 
 ## Install Dependencies
 pip install -r requirements.txt
