@@ -2,7 +2,7 @@
 
 ![Weather App Screenshot](screenshot.png)
 
-The Weather App is a simple web application that allows users to check real-time weather information for any location around the world. It provides temperature, humidity, and weather conditions for a selected city. This `README.md` file provides information about the app, its features, and how to set it up and use it.
+The Weather App is a simple web application that allows users to check real-time weather information for any location around the world. It provides temperature, status, and feels like  weather conditions for a selected city. This `README.md` file provides information about the app, its features, and how to set it up and use it.
 
 ## Features
 
