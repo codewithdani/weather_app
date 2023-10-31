@@ -30,11 +30,11 @@ python server.py
 Open a web browser and go to http://localhost:8000 to use the app.
 
 ## Technologies Used
-**Python**
-**Flask (Web Framework)**
-**SQLite3 (Database)**
-**HTML and CSS**
-**JSON**
+- **Python**
+- **Flask (Web Framework)**
+- **SQLite3 (Database)**
+- **JSON**
+- **HTML and CSS**
 
 ## License
 This project is licensed under the MIT License.
