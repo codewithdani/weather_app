@@ -94,18 +94,18 @@ def logout():
 def get_weather():
     city = request.args.get('city')
 
-    weather_data = get_current_weather(city)
+    data = get_current_weather(city)
 
     # City is not found by API
-    if not weather_data['cod'] == 200:
+    if not data['cod'] == 200:
         return render_template('404.html')
 
     return render_template(
         "weather.html",
-        title=weather_data["name"],
-        status=weather_data["weather"][0]["description"].capitalize(),
-        temp=f"{weather_data['main']['temp']:.1f}",
-        feels_like=f"{weather_data['main']['feels_like']:.1f}"
+        title=data["name"],
+        status=data["weather"][0]["description"].capitalize(),
+        temp=f"{data['main']['temp']:.1f}",
+        feels_like=f"{data['main']['feels_like']:.1f}"
     )
 
 def save_cities(cities):
