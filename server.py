@@ -147,6 +147,7 @@ def get_visited_cities():
 
     return render_template('visited_cities.html', cities=cities)
 
+
 @app.route('/user_report')
 def user_report():
     users = User.query.all()
