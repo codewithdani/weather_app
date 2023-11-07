@@ -1,0 +1,18 @@
+import pytest
+from server import get_current_weather
+
+def test_get_current_weather_valid_city():
+    # Test with a valid city
+    city = 'NewYork'
+    result = get_current_weather(city)
+    assert 'name' in result  # Check if the response contains the 'name' key, which is expected for valid data
+    assert result['cod'] == 200  # Check if the response code is 200, indicating success
+
+def test_get_current_weather_invalid_city():
+    # Test with an invalid city
+    city = 'NonExistentCity'
+    result = get_current_weather(city)
+    assert result['cod'] != 200  # Check if the response code is not 200 for an invalid city
+
+if __name__ == '__main__':
+    pytest.main()
