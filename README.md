@@ -24,7 +24,7 @@ The inspiration for the Weather App came from my desire to demonstrate API integ
 
 As a solo developer, I encountered several challenges during the development of the Weather App. Managing dependencies, time constraints, and the integration between front-end and back-end components were significant hurdles. Additionally, struggling to complete the project on time was a valuable learning experience. The project allowed me to grow as a developer and develop crucial skills.
 
-## Technologies Used
+## Technical Details
 
 - **Programming Language:** Python
 - **Web Framework:** Flask
