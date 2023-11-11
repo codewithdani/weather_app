@@ -9,7 +9,7 @@
 - [Challenges Faced](#challenges-faced)
 - [Technical Details](#technical-details)
 - [Future Iterations](#future-iterations)
-- [Get Started](#get-started)
+- [Usage](#usage)
 - [Contact](#contact)
 
 ## Introduction
