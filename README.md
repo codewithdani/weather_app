@@ -8,7 +8,6 @@
 - [Inspiration](#inspiration)
 - [Challenges Faced](#challenges-faced)
 - [Technical Details](#technical-details)
-- [Screenshots](#screenshots)
 - [Future Iterations](#future-iterations)
 - [Get Started](#get-started)
 - [Contact](#contact)
@@ -25,12 +24,13 @@ The inspiration for the Weather App came from my desire to demonstrate API integ
 
 As a solo developer, I encountered several challenges during the development of the Weather App. Managing dependencies, time constraints, and the integration between front-end and back-end components were significant hurdles. Additionally, struggling to complete the project on time was a valuable learning experience. The project allowed me to grow as a developer and develop crucial skills.
 
-## Technical Details
+## Technologies Used
 
 - **Programming Language:** Python
 - **Web Framework:** Flask
 - **Front-end:** HTML, CSS
 - **Database:** SQLite
+- **Data Format:** JSON
 - **Version Control:** Git
 - **Deployment:** render.com
 
@@ -55,13 +55,6 @@ python server.py
 
 ## Access the App
 Open a web browser and go to http://localhost:8000 to use the app.
-
-## Technologies Used
-- **Python**
-- **Flask (Web Framework)**
-- **SQLite3 (Database)**
-- **JSON**
-- **HTML and CSS**
 
 ## License
 This project is licensed under the MIT License.
